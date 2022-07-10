@@ -1,13 +1,8 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Layout from "../components/Layout";
-// import NavigationBar from "../components/NavigationBar";
-// import AboutMe from "../components/AboutMe";
-// import Container from "react-bootstrap/Container";
 
-export default function IndexPage() {
+export default function AboutMe() {
   return (
-    <Layout>
+    <>
       <p>
         I am a San Francisco native, self-taught programmer with a certificate
         in Full-Stack Web Development from Bloom Institute of Technology.
@@ -39,6 +34,6 @@ export default function IndexPage() {
         with what I do, and being with an organization that values
         professionalism.
       </p>
-    </Layout>
+    </>
   );
 }
