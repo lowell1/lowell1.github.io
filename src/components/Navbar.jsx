@@ -6,7 +6,7 @@ import { Link } from "gatsby";
 
 export default function Navigation() {
   return (
-    <Navbar expand="sm">
+    <Navbar variant="dark" bg="secondary" expand="sm">
       <Container fluid>
         <Navbar.Brand href="/">Lowell Jacobs</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

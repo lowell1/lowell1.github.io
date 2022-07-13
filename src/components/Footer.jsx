@@ -15,12 +15,12 @@ export default function Footer() {
 
   return (
     <>
-      <Container fluid>
-        <a href="https://www.linkedin.com/in/lowell-jacobs">
-          <i class="bi bi-linkedin"></i>
+      <Container fluid className="bg-danger">
+        <a className="mr-4" href="https://www.linkedin.com/in/lowell-jacobs">
+          <i class="bi bi-linkedin fs-2"></i>
         </a>
         <a href="https://www.github.com/lowell1">
-          <i class="bi bi-github"></i>
+          <i class="bi bi-github fs-2"></i>
         </a>
         <OverlayTrigger
           placement="top"
@@ -28,7 +28,7 @@ export default function Footer() {
           overlay={renderTooltip}
         >
           <a href="mailto:lowelljacobs@mail.com">
-            <i class="bi bi-envelope"></i>
+            <i class="bi bi-envelope fs-2"></i>
           </a>
         </OverlayTrigger>
       </Container>
