@@ -15,7 +15,7 @@ export default function Footer() {
 
   return (
     <>
-      <Container fluid className="bg-danger">
+      <Container fluid className="bg-secondary">
         <a className="mr-4" href="https://www.linkedin.com/in/lowell-jacobs">
           <i class="bi bi-linkedin fs-2"></i>
         </a>
