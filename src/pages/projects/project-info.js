@@ -4,7 +4,7 @@ const projectInfo = [
     siteUrl: "https://cc-production.netlify.app/",
     frontEndRepoUrl:
       "https://github.com/Lambda-School-Labs/community-calendar-fe",
-    screenshotName: "community_calendar.png",
+    screenshotName: "community-calendar.png",
     description:
       "Create incredible neighborhoods and community spaces through meaningful shared events. A React client for the Community Calendar platform. Allows users to find events near them from multiple datasources, including our own database of user-generated content and several external APIs.",
     stack: "React, Bulma, GraphQL",
@@ -22,7 +22,7 @@ const projectInfo = [
       "https://lowell1.github.io/bw-saltiest-hacker-news-marketing/index.html",
     frontEndRepoUrl:
       "https://github.com/lowell1/bw-saltiest-hacker-news-marketing",
-    screenshotName: "salty_hackers.png",
+    screenshotName: "salty-hackers.png",
     description:
       "System for teachers to create and automatically grade tests for students.",
     stack: "HTML, JS, CSS",
