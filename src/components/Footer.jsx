@@ -5,7 +5,6 @@ import Tooltip from "react-bootstrap/Tooltip";
 
 export default function Footer() {
   function renderTooltip(props) {
-    console.log(props);
     return (
       <Tooltip id="button-tooltip" {...props}>
         <span style={{ wordWrap: "normal" }}>lowelljacobs@mail.com</span>
@@ -24,7 +23,7 @@ export default function Footer() {
         </a>
         <OverlayTrigger
           placement="top"
-          delay={{ show: 250, hide: 40000 }}
+          delay={{ show: 250, hide: 500 }}
           overlay={renderTooltip}
         >
           <a href="mailto:lowelljacobs@mail.com">

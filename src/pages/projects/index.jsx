@@ -1,39 +1,101 @@
 import React from "react";
+import { graphql } from "gatsby";
 import Layout from "../../components/Layout";
 import Carousel from "react-bootstrap/Carousel";
 import Container from "react-bootstrap/Container";
 import projectInfo from "./project-info";
 import Card from "react-bootstrap/Card";
+import CardGroup from "react-bootstrap/CardGroup";
 
-function ProjectCard({ project }) {
+function ProjectCard({ html, frontmatter }) {
+  let screenshotImage = <></>;
+
+  if (frontmatter.screenshotName && frontmatter.siteURL)
+    screenshotImage = (
+      <Card.Link href={frontmatter.siteURL}>
+        <Card.Img src={`/images/projects/${frontmatter.screenshotName}`} />
+      </Card.Link>
+    );
+  else if (frontmatter.screenshotName)
+    screenshotImage = (
+      <Card.Img src={`/images/projects/${frontmatter.screenshotName}`} />
+    );
+
   return (
     <Card>
-      {project.screenshotName && (
-        <Card.Img
-          variant="top"
-          src={`public/images/projects/${project.screenshotName}`}
-        />
-      )}
+      {screenshotImage}
       <Card.Body>
-        <Card.Title>{project.title}</Card.Title>
-        <Card.Text>{project.description}</Card.Text>
+        <Card.Title>{frontmatter.title}</Card.Title>
+        <Card.Text
+          as="div"
+          dangerouslySetInnerHTML={{ __html: html }}
+        ></Card.Text>
       </Card.Body>
     </Card>
   );
+
+  // return (
+
+  // <Card>
+  //   {project.screenshotName && (
+  //     <Card.Img
+  //       variant="top"
+  //       src={`public/images/projects/${project.screenshotName}`}
+  //     />
+  //   )}
+  //   <Card.Body>
+  //     <Card.Title>{project.title}</Card.Title>
+  //     <Card.Text>{project.description}</Card.Text>
+  //   </Card.Body>
+  // </Card>
+  // );
 }
 
-export default function Projects() {
+export default function Projects({ data }) {
+  console.log(data);
+
   return (
     <Layout>
       {/* <Container className="d-flex flex-wrap justify-content-center"> */}
-      <Container>
-        {projectInfo.map((project) => (
-          <ProjectCard project={project} />
+      <Container
+        style={{
+          display: "grid",
+          gap: "1rem",
+          gridTemplateColumns: "repeat(auto-fit, minmax(20rem, 1fr))",
+        }}
+      >
+        {data.allMarkdownRemark.nodes.map((node) => (
+          <>
+            <ProjectCard
+              html={node.html}
+              frontmatter={node.frontmatter}
+              key={node.key}
+            />
+          </>
         ))}
+        {/* {projectInfo.map((project) => (
+          <ProjectCard project={project} />
+        ))} */}
       </Container>
     </Layout>
   );
 }
+
+export const pageQuery = graphql`{
+  allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/.*/projects/.*\\.md/"}}) {
+    nodes {
+      html
+      fileAbsolutePath
+      frontmatter {
+        title
+        screenshotName
+        siteURL
+        frontEndRepoURL
+        backEndRepoURL
+      }
+    }
+  }
+}`;
 
 // export default function Projects() {
 //   return (
@@ -51,29 +113,11 @@ export default function Projects() {
 //                         alt="screenshot of project"
 //                         src={`/images/projects/${project.screenshotName}`}
 //                         style={{ height: "50vh" }}
-//                       />
-//                     </a>
-//                   ) : (
-//                     <img
-//                       alt="screenshot of project"
-//                       src={`/images/projects/${project.screenshotName}`}
-//                       style={{ height: "50vh" }}
-//                     />
-//                   )
-//                 ) : (
-//                   <div className="bg-black" style={{ height: "50vh" }}></div>
+//                       />nodes "50vh" }}></div>
 //                 )}
 //                 <Carousel.Caption>
-//                   {/* <div className="bg-black"> */}
-//                   <p style={{ webkitTextStroke: "1px black" }}>
-//                     {project.name}
-//                   </p>
-//                   <p style={{ webkitTextStroke: "1px black" }}>
-//                     {project.description}
-//                   </p>
-//                   {/* </div> */}
-//                 </Carousel.Caption>
-//               </Carousel.Item>
+//                   {/* <div className="bg-black"> *description: System for teachers to create and automatically grade tests for students.
+
 //             );
 //           })}
 //         </Carousel>
