@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import Layout from "../../components/Layout";
 import Carousel from "react-bootstrap/Carousel";
 import Container from "react-bootstrap/Container";
-import projectInfo from "./project-info";
+// import projectInfo from "./project-info";
 import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
 
