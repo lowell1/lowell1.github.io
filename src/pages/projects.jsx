@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Layout from "../../components/Layout";
+import Layout from "../components/Layout";
 import Carousel from "react-bootstrap/Carousel";
 import Container from "react-bootstrap/Container";
 // import projectInfo from "./project-info";
