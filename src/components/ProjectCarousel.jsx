@@ -1,8 +1,9 @@
-import { Carousel } from "react-bootstrap";
+import React from "react";
+import Carousel from "react-bootstrap/Carousel";
 import { useStaticQuery, graphql } from "gatsby";
 
 export default function ProjectCarousel() {
-  const projects = useStaticQuery(graphql`{
+  const queryData = useStaticQuery(graphql`{
     allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/.*/projects/.*\\.md/"}}) {
       nodes {
         html
@@ -18,9 +19,24 @@ export default function ProjectCarousel() {
     }
   }`);
 
+  queryData.allMarkdownRemark.nodes.map((a) => console.log(a.html));
   return (
-    <Carousel>
-      <Carousel.Item>
+    <Carousel variant="dark" interval={null}>
+      {queryData.allMarkdownRemark.nodes.map((node) => (
+        <Carousel.Item className="text-center" key={node.frontmatter.title}>
+          <h2>{node.frontmatter.title}</h2>
+          <div
+            // className="w-75 mx-auto"
+            dangerouslySetInnerHTML={{ __html: node.html }}
+          />
+          {/* <div className="d-block" style={{ minHeight: "15rem" }}></div>
+          <Carousel.Caption>
+            <h2>{node.frontmatter.title}</h2>
+            <div dangerouslySetInnerHTML={{ __html: node.html }} />
+          </Carousel.Caption> */}
+        </Carousel.Item>
+      ))}
+      {/* <Carousel.Item>
         <img
           className="d-block w-100"
           src="holder.js/800x400?text=First slide&bg=373940"
@@ -30,33 +46,7 @@ export default function ProjectCarousel() {
           <h3>First slide label</h3>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="holder.js/800x400?text=Second slide&bg=282c34"
-          alt="Second slide"
-        />
-
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="holder.js/800x400?text=Third slide&bg=20232a"
-          alt="Third slide"
-        />
-
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
+      </Carousel.Item> */}
     </Carousel>
   );
 }
