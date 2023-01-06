@@ -1,7 +1,6 @@
 import React from "react";
 import Layout from "../components/Layout";
 import Container from "react-bootstrap/Container";
-import ProjectCarousel from "../components/ProjectCarousel";
 
 export default function Index() {
   return (

@@ -1,11 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
-import Carousel from "react-bootstrap/Carousel";
 import Container from "react-bootstrap/Container";
-// import projectInfo from "./project-info";
 import Card from "react-bootstrap/Card";
-import CardGroup from "react-bootstrap/CardGroup";
 
 function ProjectCard({ html, frontmatter }) {
   let screenshotImage = <></>;
@@ -33,22 +30,6 @@ function ProjectCard({ html, frontmatter }) {
       </Card.Body>
     </Card>
   );
-
-  // return (
-
-  // <Card>
-  //   {project.screenshotName && (
-  //     <Card.Img
-  //       variant="top"
-  //       src={`public/images/projects/${project.screenshotName}`}
-  //     />
-  //   )}
-  //   <Card.Body>
-  //     <Card.Title>{project.title}</Card.Title>
-  //     <Card.Text>{project.description}</Card.Text>
-  //   </Card.Body>
-  // </Card>
-  // );
 }
 
 export default function Projects({ data }) {
@@ -73,9 +54,6 @@ export default function Projects({ data }) {
             />
           </>
         ))}
-        {/* {projectInfo.map((project) => (
-          <ProjectCard project={project} />
-        ))} */}
       </Container>
     </Layout>
   );
@@ -90,38 +68,7 @@ export const pageQuery = graphql`{
         title
         screenshotName
         siteURL
-        frontEndRepoURL
-        backEndRepoURL
       }
     }
   }
 }`;
-
-// export default function Projects() {
-//   return (
-//     <Layout>
-//       <Container>
-//         <Carousel interval={null}>
-//           {projectInfo.map((project) => {
-//             console.log(project.screenshot);
-//             return (
-//               <Carousel.Item className="border border-red">
-//                 {project.screenshotName ? (
-//                   project.siteUrl ? (
-//                     <a href={project.siteUrl}>
-//                       <img
-//                         alt="screenshot of project"
-//                         src={`/images/projects/${project.screenshotName}`}
-//                         style={{ height: "50vh" }}
-//                       />nodes "50vh" }}></div>
-//                 )}
-//                 <Carousel.Caption>
-//                   {/* <div className="bg-black"> *description: System for teachers to create and automatically grade tests for students.
-
-//             );
-//           })}
-//         </Carousel>
-//       </Container>
-//     </Layout>
-//   );
-// }
