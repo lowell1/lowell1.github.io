@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkLowell_Jacobs_Portfolio=self.webpackChunkLowell_Jacobs_Portfolio||[]).push([[256],{7291:function(o,e,f){f.r(e),f.d(e,{default:function(){return t}});var n=f(7294);function t(o){(0,n.useEffect)((()=>{window.location.href="/"}),[])}}}]);
+//# sourceMappingURL=component---src-pages-404-jsx-506c9146b1550a0405cc.js.map
