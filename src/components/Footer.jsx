@@ -8,7 +8,7 @@ function Email() {
   const [emailLink, setEmailLink] = useState("");
 
   const showEmail = () => {
-    setEmailLink("lowelljacobs@mail.com");
+    setEmailLink("mailto:lowelljacobs@mail.com");
   };
 
   return (
